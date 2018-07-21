@@ -10,7 +10,6 @@ $(() => {
 
     let hourNow = time.getHours()
     let minuteNow = time.getMinutes()
-    let secNow = time.getSeconds()
 
     if (hour == hourNow && minute == minuteNow) {
       $.ajax({
@@ -42,4 +41,15 @@ $(() => {
     console.log(hour + ':' + minute)
     alert('You set alarm at ' + hour + ':' + minute)
   })
+
+  setInterval(() => {
+    $.ajax({
+      type: "GET",
+      url: url + '/classic_palm-heartRate/view',
+      dataType: "text",
+      success: function (response) {
+        $('#heartRate').html(response + ' BPM')
+      }
+    });
+  }, 1000)
 })
