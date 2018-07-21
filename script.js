@@ -10,6 +10,8 @@ $(() => {
 
     let hourNow = time.getHours()
     let minuteNow = time.getMinutes()
+    let secNow = time.getSeconds()
+
     if (hour == hourNow && minute == minuteNow) {
       $.ajax({
         type: "POST",
@@ -32,7 +34,7 @@ $(() => {
         }
       });
     }
-  }, 1000)
+  }, 2000)
 
   $('#setAlarm').on("click", function () {
     hour = $('#hour').val()
